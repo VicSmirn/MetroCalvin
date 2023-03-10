@@ -27,13 +27,25 @@ def prepeare_picturies():
     tiles = view_as_windows(lab_l_channel, (tsize, tsize), (tsize, tsize))
     lightness = tiles.reshape(-1, tsize ** 2).mean(axis=-1).reshape(np.array(crop_img_color.shape[:2]) // tsize)
 
+def resize():
+    size_f = 640
+    r = int(img.shape[0] * size_f / img.shape[1])
+    dim = (size_f, r)
+    resized = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
+    cv2.imshow('recised_image_photo', resized)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+def gray_scale():
+    img = cv2.imread('./s-1/train/images/23-02-17_12-00-55_bmp.rf.eae1d931dc695ddd5ad6f528bb3a45ef.jpg', cv2.IMREAD_GRAYSCALE)
+    cv2.imshow('gray', img)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+def transform_toColor(img):
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
 img = cv2.imread('./s-1/train/images/23-02-17_12-00-55_bmp.rf.eae1d931dc695ddd5ad6f528bb3a45ef.jpg')
 cv2.imshow('my_photo', img)
-size_f = 640
-r = int(img.shape[0] * size_f / img.shape[1])
-dim = (size_f, r)
-resized = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
-cv2.imshow('recised_image_photo', resized)
-
 cv2.waitKey(0)
 cv2.destroyAllWindows()
