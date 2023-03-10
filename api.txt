@@ -1,0 +1,10 @@
+api { 
+    # None None's workspace
+    web_server: https://app.clear.ml
+    api_server: https://api.clear.ml
+    files_server: https://files.clear.ml
+    credentials {
+        "access_key" = "CYJSTKPDKW6MBJE4XS5F"
+        "secret_key"  = "5dbZZ3YkOTRNVpb3wuAVp6o9SmD2x8vOAtPO1YZLMigbtn15gn"
+    }
+}
